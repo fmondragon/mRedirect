@@ -53,6 +53,7 @@ mRedirect = function(options) {
         pc = window.location.protocol+'//',
         hn = (settings.root)? window.location.hostname+'/'+settings.root : window.location.hostname,
         pn=window.location.pathname,
+		qh=window.location.search+window.location.hash,
         mURL;
     console.log(pn);
     if(!!(location.search.match(/\?alert/))){
@@ -75,7 +76,7 @@ mRedirect = function(options) {
         /*Your exactly where you need to be.*/
     }
     
-    function redirect(url){document.location = pc+url;}
+    function redirect(url){document.location = pc+url+qh;}
     
     if(isM && mURL){
         window.onload = function(){
@@ -90,6 +91,12 @@ mRedirect = function(options) {
             }
         }
     }
+}
+
+if(typeof console=='undefined') {
+	window.consol={
+		log: function(){}
+	}
 }
 
 function cC(n,v,d) {
