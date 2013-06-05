@@ -2,7 +2,7 @@
 /////////////////////////   
 ////      _ _ _      ////   Author: Devin Barth
 ////     | (_) |     ////   Site: MrDevinB.com
-////   __| |_| |__   ////   Version: 2.1.1
+////   __| |_| |__   ////   Version: 2.1.2
 ////  / _` | | '_ \  ////   
 //// | (_| | | |_) | ////   Copyright (c) 2011 Devin Barth
 ////  \__,_| |_.__/  ////   Licensed under GPL
@@ -53,12 +53,9 @@ mRedirect = function(options) {
         pc = window.location.protocol+'//',
         hn = (settings.root)? window.location.hostname+'/'+settings.root : window.location.hostname,
         pn=window.location.pathname,
-		qh=window.location.search+window.location.hash,
+        qh=window.location.search+window.location.hash,
         mURL;
     console.log(pn);
-    if(!!(location.search.match(/\?alert/))){
-        alert(hn);
-    }
     
     var regex = new RegExp('^(\/)?'+(( !settings.subdomain && settings.root )? settings.root : '' )+'(\/)?'+settings.directory,'i');
     
@@ -76,7 +73,14 @@ mRedirect = function(options) {
         /*Your exactly where you need to be.*/
     }
     
-    function redirect(url){document.location = pc+url+qh;}
+    function redirect(url){
+        var url = pc+url+qh;
+        if(!!(location.search.match(/\?debug/))){
+            alert(url);
+        } else {
+            document.location = url;
+        }
+    }
     
     if(isM && mURL){
         window.onload = function(){
