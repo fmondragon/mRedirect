@@ -2,7 +2,7 @@
 /////////////////////////   
 ////      _ _ _      ////   Author: Devin Barth
 ////     | (_) |     ////   Site: MrDevinB.com
-////   __| |_| |__   ////   Version: 2.1.2
+////   __| |_| |__   ////   Version: 2.1.3
 ////  / _` | | '_ \  ////   
 //// | (_| | | |_) | ////   Copyright (c) 2011 Devin Barth
 ////  \__,_| |_.__/  ////   Licensed under GPL
@@ -98,7 +98,7 @@ mRedirect = function(options) {
 }
 
 if(typeof console=='undefined') {
-	window.consol={
+	window.console={
 		log: function(){}
 	}
 }
