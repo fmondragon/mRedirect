@@ -2,7 +2,7 @@
 /////////////////////////   
 ////      _ _ _      ////   Author: Devin Barth
 ////     | (_) |     ////   Site: MrDevinB.com
-////   __| |_| |__   ////   Version: 2.1.3
+////   __| |_| |__   ////   Version: 2.1.4
 ////  / _` | | '_ \  ////   
 //// | (_| | | |_) | ////   Copyright (c) 2011 Devin Barth
 ////  \__,_| |_.__/  ////   Licensed under GPL
@@ -47,7 +47,8 @@ mRedirect = function(options) {
     }
     if(options){for(var key in options){settings[key] = options[key];}}
     
-    var e=settings.cookie_name,
+    var c=settings.tablet_redirect,
+        e=settings.cookie_name,
         f=settings.cookie_val,
         g=settings.days,
         pc = window.location.protocol+'//',
@@ -61,7 +62,7 @@ mRedirect = function(options) {
     
     mURL = (settings.subdomain)? !!(hn.match(regex)) : !!(pn.match(regex));
     
-    var ua = navigator.userAgent.toLowerCase(),isM =!!(ua.match(/(iPhone|iPod|blackberry|android 0.5|htc|lg|midp|mmp|mobile|nokia|opera mini|palm|pocket|psp|sgh|smartphone|symbian|treo mini|Playstation Portable|SonyEricsson|Samsung|MobileExplorer|PalmSource|Benq|Windows Phone|Windows Mobile|IEMobile|Windows CE|Nintendo Wii)/i)),isT =!!(ua.match(/(iPad|SCH-I800|xoom|kindle)/i));
+    var ua = navigator.userAgent.toLowerCase(),isM =!!(ua.match(/(iPhone|iPod|blackberry|android 0.5|htc|lg|midp|mmp|mobile|nokia|opera mini|palm|pocket|psp|sgh|smartphone|symbian|treo mini|Playstation Portable|SonyEricsson|Samsung|MobileExplorer|PalmSource|Benq|Windows Phone|Windows Mobile|IEMobile|Windows CE|Nintendo Wii)/i)),isT =!!(ua.match(/(iPad|SCH-I800|xoom|kindle|tablet)|(android)(?!.*mobile)/i));
     
     if( (!isM || (isT && !c)) && mURL ){
         var url = (settings.subdomain)? hn.replace(settings.directory,'www') : hn;
