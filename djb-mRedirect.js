@@ -62,7 +62,7 @@ mRedirect = function(options) {
     
     mURL = (settings.subdomain)? !!(hn.match(regex)) : !!(pn.match(regex));
     
-    var ua = navigator.userAgent.toLowerCase(),isM =!!(ua.match(/(iPhone|iPod|blackberry|android 0.5|htc|lg|midp|mmp|mobile|nokia|opera mini|palm|pocket|psp|sgh|smartphone|symbian|treo mini|Playstation Portable|SonyEricsson|Samsung|MobileExplorer|PalmSource|Benq|Windows Phone|Windows Mobile|IEMobile|Windows CE|Nintendo Wii)/i)),isT =!!(ua.match(/(iPad|SCH-I800|xoom|kindle|tablet)|(android)(?!.*mobile)/i));
+    var ua = navigator.userAgent.toLowerCase(),isM =!!(ua.match(/(iPhone|iPod|blackberry|android 0.5|htc|lg|midp|mmp|mobile|nokia|opera mini|palm|pocket|psp|sgh|smartphone|symbian|treo mini|Playstation Portable|SonyEricsson|Samsung|MobileExplorer|PalmSource|Benq|Windows Phone|Windows Mobile|IEMobile|Windows CE|Nintendo Wii)(?!.*iPad)/i)),isT =!!(ua.match(/(iPad|SCH-I800|xoom|kindle|tablet)|(android)(?!.*mobile)/i));
     
     if( (!isM || (isT && !c)) && mURL ){
         var url = (settings.subdomain)? hn.replace(settings.directory,'www') : hn;
@@ -76,7 +76,7 @@ mRedirect = function(options) {
     
     function redirect(url){
         var url = pc+url+qh;
-        if(!!(location.search.match(/\?debug/))){
+        if(!!(location.search.match(/(\?|&)debug/))){
             alert(url);
         } else {
             document.location = url;
